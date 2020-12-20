@@ -1,12 +1,358 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>✨hidang Blog</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>✨TKB HỌC PHẦN UIT</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="trangchu.css">
 </head>
 <body>
-	<script src="https://gist.github.com/hidang/d50a6a9072b8296396ea249b7370b58c.js"></script>
-	<div id="hidang"><center>🥽</center></div>
+	<!-- nav -->
+	<div>
+		<div class="alert alert-info alert-dismissible fade show" role="alert">
+			<center><strong>🎉Trang web soạn thời khóa biểu học phần dành cho UITer ❤</strong></center>
+	</div>
+	<!--  -->
+	<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+		<span > 👆 Click để xem danh sách lớp đã chọn</span>
+	</button>
+	<!--  -->
+	
+	
+	<div class="fixed-top collapse mb-5" id="navbarToggleExternalContent">
+		<div class="p-4">
+		</br></br>
+		<!-- Dạng danh sách -->
+			<div class="container">
+				
+				<a class="btn btn-warning btn-sm mb-2" data-bs-toggle="collapse" href="#show-list-danhsach" role="button" aria-expanded="true" aria-controls="ListLoc">
+					📜Ẩn/Hiện
+				</a>
+				<b>👉Danh sách lớp học đã chọn</b></br>
+				<div class="collapse show" id="show-list-danhsach">
+					<div class="row">
+						<div class="col-5" style="border-style: inset;">
+							<!--List  tên môn học-->
+							<b>Tên môn học:</b>
+							<div class="list-group" id="danhsach-selected" role="tablist">
+								<!-- <a class="list-group-item list-group-item-action" data-bs-toggle="list" href="#list-home" role="tab">Demo1</a>
+								<a class="list-group-item list-group-item-action" data-bs-toggle="list" href="#list-profile" role="tab">Demo2</a>
+								<a class="list-group-item list-group-item-action" data-bs-toggle="list" href="#list-messages" role="tab">Demo3</a>
+								<a class="list-group-item list-group-item-action" data-bs-toggle="list" href="#list-settings" role="tab">Demo4</a> -->
+							
+							</div>
+						</div>
+		
+						<div class="col-5" style="border-style: solid;">
+							<b >Thông tin môn học:</b>
+							<div class="tab-content" id="info-danhsach-selected">
+								<!-- <p id="status-text-info"></p> -->
+								<!-- <div class="tab-pane fade" id="list-home" role="tabpanel">Demo1</br>Demo1</br>Demo1</br>Demo1</div>
+								<div class="tab-pane fade" id="list-profile" role="tabpanel" >Demo2</br>Demo2</br>Demo2</br>Demo2</div>
+								<div class="tab-pane fade" id="list-messages" role="tabpanel">Demo3</br>Demo3</br>Demo3</br>Demo3</div>
+								<div class="tab-pane fade" id="list-settings" role="tabpanel">Demo4</br>Demo3</br>Demo3</br>Demo3</div> -->
+							
+							</div>
+						</div>
+						<div class="col-5 ml-1" style="border-style: dotted;">
+							<b>Danh sách mã lớp hiện tại:</b>
+							<button id="btnCopy" type="button" class="btn btn-primary btn-sm">copy</button>
+							<div id="show-list-malop">
+	
+							</div>
+						</div>
+						<div class="col-5 ml-1" style="border-style: outset;">
+							<b>Tổng số tín chỉ :</b>
+							<div id="show-TongTC">
+								
+							</div>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		<!-------------------->
+	
+		<!-- Dạng bảng -->
+			<div class="container mt-2">
+				<a class="btn btn-warning btn-sm mb-2 " data-bs-toggle="collapse" href="#showbangtkb" role="button" aria-expanded="true" aria-controls="ListLoc">
+					🎇Ẩn/Hiện
+				</a>
+				<b>👉Xem dưới dạng bảng thời khóa biểu</b></br>
+			</div>
+			<div class="collapse" id="showbangtkb">
+				<div class="card card-body">
+					table
+				</div>
+			</div>
+		<!-------------------->
+		</div>
+	</div>
+	
+	<nav class="fixed-top navbar navbar-light bg-transparent">
+		
+		<div class="container-fluid" >
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+		</div>
+	
+	</nav>
+	<!-- end-nav -->
+	<!-- Loc & Table -->
+		<!--Phần lọc -->
+	<div id="container" class="container mt-5">
+		<div>
+			<p>
+				<a class="btn btn-primary btn-sm mt-2" data-bs-toggle="collapse" href="#ListLoc" role="button" aria-expanded="true" aria-controls="ListLoc">
+					👉 Ẩn/hiện lọc:
+				</a>
+			</p>
+			<div class="collapse show" id="ListLoc">
+				<div class="card card-body">
+					<!--list lọc-->
+					<div class="btn-group-sm" role="group" aria-label="Basic checkbox toggle button group">
+		
+						<label class="form-check-label" for="STT">
+							<input type="checkbox" class="form-check-input" id="STT" autocomplete="off">
+							STT
+						</label>
+						
+						<label class="form-check-label" for="MaMH">
+							<input type="checkbox" class="form-check-input" id="MaMH" autocomplete="off">
+							Mã môn học
+						</label>
+					
+						<label class="form-check-label" for="MaLop">
+							<input type="checkbox" class="form-check-input" id="MaLop"checked="true" autocomplete="off">
+							Mã Lớp
+						</label>
+					
+						<label class="form-check-label" for="TenMH">
+							<input type="checkbox" class="form-check-input" id="TenMH" checked="true" autocomplete="off">
+							Tên môn học
+						</label>
+						
+						<label class="form-check-label" for="MaGV">
+							<input type="checkbox" class="form-check-input" id="MaGV" autocomplete="off">
+							Mã giảng viên
+						</label>
+					
+						<label class="form-check-label" for="TenGV">
+							<input type="checkbox" class="form-check-input" id="TenGV" autocomplete="off">
+							Tên giảng viên
+						</label>
+					
+						<label class="form-check-label" for="SiSo">
+							<input type="checkbox" class="form-check-input" id="SiSo" autocomplete="off">
+							Sĩ số
+						</label>
+		
+						<label class="form-check-label" for="SoTc">
+							<input type="checkbox" class="form-check-input" id="SoTc" autocomplete="off">
+							Số tính chỉ
+						</label>
+		
+						<label class="form-check-label" for="ThucHanh">
+							<input type="checkbox" class="form-check-input" id="ThucHanh" autocomplete="off">
+							Thực hành
+						</label>
+		
+						<label class="form-check-label" for="HTGD">
+							<input type="checkbox" class="form-check-input" id="HTGD" autocomplete="off">
+							HTGD
+						</label>
+		
+						<label class="form-check-label" for="Thu">
+							<input type="checkbox" class="form-check-input" id="Thu" checked="true" autocomplete="off">
+							THỨ
+						</label>
+		
+						<label class="form-check-label" for="Tiet">
+							<input type="checkbox" class="form-check-input" id="Tiet" checked="true" autocomplete="off">
+							TIẾT
+						</label>
+		
+						<label class="form-check-label" for="CachTuan">
+							<input type="checkbox" class="form-check-input" id="CachTuan" autocomplete="off">
+							Cách tuần
+						</label>
+					
+						<label class="form-check-label" for="PhongHoc">
+							<input type="checkbox" class="form-check-input" id="PhongHoc" autocomplete="off">
+							Phòng học
+						</label>
+					
+						<label class="form-check-label" for="KhoaHoc">
+							<input type="checkbox" class="form-check-input" id="KhoaHoc" autocomplete="off">
+							Khóa học
+						</label>
+					
+						<label class="form-check-label" for="HocKy">
+							<input type="checkbox" class="form-check-input" id="HocKy" autocomplete="off">
+							Học kỳ
+						</label>
+					
+						<label class="form-check-label" for="NamHoc">
+							<input type="checkbox" class="form-check-input" id="NamHoc" autocomplete="off">
+							Năm học
+						</label>
+					
+						<label class="form-check-label" for="HeDT">
+							<input type="checkbox" class="form-check-input" id="HeDT" autocomplete="off">
+							Hệ ĐT
+						</label>
+						
+						<label class="form-check-label" for="KhoaQL">
+							<input type="checkbox" class="form-check-input" id="KhoaQL" autocomplete="off">
+							Khoa QL
+						</label>
+		
+						<label class="form-check-label" for="NBD">
+							<input type="checkbox" class="form-check-input" id="NBD" autocomplete="off">
+							NBD
+						</label>
+					
+						<label class="form-check-label" for="NKT">
+							<input type="checkbox" class="form-check-input" id="NKT" autocomplete="off">
+							NKT
+						</label>
+					
+						<label class="form-check-label" for="GhiChu">
+							<input type="checkbox" class="form-check-input" id="GhiChu" autocomplete="off">
+							Ghi chú
+						</label>
+					
+					</div>
+					<!----------->
+				</div>
+			</div>
+		</div>
+	</div>
+	<!----------------------->
+
+	<!--Phần table select -->
+	<table id="table-select" class="table table-bordered mt-3">
+		<thead>
+			<!-- HEAD name COL -->
+			<tr id="cur-name-header-table" class="header" name="cell-Chon">
+				<th name="cell-Chon">☑
+
+				</th>
+				<th name="cell-STT">STT</br>
+					<input type="text" id="cell-STT" name="cell-STT">
+				</th>
+				<th name="cell-MaMH">Mã môn học</br>
+					<input type="text" id="cell-MaMH" name="cell-MaMH">
+				</th>
+				<th name="cell-MaLop">Mã lớp</br>
+					<input type="text" id="cell-MaLop" name="cell-MaLop">
+				</th>
+				<th name="cell-TenMH">Tên môn học</br>
+					<input type="text" id="cell-TenMH" name="cell-TenMH">
+					<!-- <select id="cell-TenMH-select" class="form-select form-select-sm">
+						<option selected>Chọn môn học</option>
+						<option value="1">One</option>
+						<option value="2">Two</option>
+						<option value="3">Three</option>
+					</select> -->
+				</th>
+				<th name="cell-MaGV">Mã giảng viên</br>
+					<!-- <input type="text" id="cell-MaGV" name="cell-MaGV"> -->
+				</th>
+				<th name="cell-TenGV">Tên giảng viên</br>
+					<input type="text" id="cell-TenGV" name="cell-TenGV">
+				</th>
+				<th name="cell-SiSo">Sĩ số</br>
+					<input type="text" id="cell-SiSo" name="cell-SiSo">
+				</th>
+				<th name="cell-SoTc">Số TC</br>
+					<input type="text" id="cell-SoTc" name="cell-SoTc">
+				</th>
+				<th name="cell-ThucHanh">Thực hành</br>
+					<input class="form-check-input" type="checkbox" id="cell-ThucHanh" name="cell-ThucHanh">
+				</th>
+				<th name="cell-HTGD">HTGD</br>
+					<input type="text" id="cell-HTGD" name="cell-HTGD">
+				</th>
+				<th name="cell-Thu">Thứ</br>
+					<input type="text" id="cell-Thu" name="cell-Thu">
+				</th>
+				<th name="cell-Tiet">Tiết</br>
+					<input type="text" id="cell-Tiet" name="cell-Tiet">
+				</th>
+				<th name="cell-CachTuan">Cách tuần</br>
+					<input type="text" id="cell-CachTuan" name="cell-CachTuan">
+				</th>
+				<th name="cell-PhongHoc">Phòng học</br>
+					<input type="text" id="cell-PhongHoc" name="cell-PhongHoc">     
+				</th>
+				<th name="cell-KhoaHoc">Khóa học</br>
+					<input type="text" id="cell-KhoaHoc" name="cell-KhoaHoc">
+				</th>
+				<th name="cell-HocKy">Học kỳ</br>
+					<input type="text" id="cell-HocKy" name="cell-HocKy">
+				</th>
+				<th name="cell-NamHoc">Năm học</br>
+					<input type="text" id="cell-NamHoc" name="cell-NamHoc">
+				</th>
+				<th name="cell-HeDT">Hệ ĐT</br>
+					<input type="text" id="cell-HeDT" name="cell-HeDT">
+				</th>
+				<th name="cell-KhoaQL">Khoa QL</br>
+					<input type="text" id="cell-KhoaQL" name="cell-KhoaQL">
+				</th>
+				<th name="cell-NBD">NBD</br>
+					<input type="text" id="cell-NBD" name="cell-NBD">
+				</th>
+				<th name="cell-NKT">NKT</br>
+					<input type="text" id="cell-NKT" name="cell-NKT">
+				</th>
+				<th name="cell-GhiChu">Ghi chú</br>
+					<input type="text" id="cell-GhiChu" name="cell-GhiChu">
+				</th>
+			</tr>
+			<!------------->
+		</thead>
+
+
+		<tbody id="body-table">
+			<!-- <tr>  
+				<td name="cell-MaLop">IT048448Demo</td>
+				<td name="cell-TenMH">Nhập mônDemo</td>
+			</tr> 
+			<tr>  
+				<td name="cell-MaLop">IT048448Demo</td>
+				<td name="cell-TenMH">Nhập mônDemo</td>
+			</tr> 
+			<tr>  
+				<td name="cell-MaLop">IT048448Demo</td>
+				<td name="cell-TenMH">Nhập mônDemo</td>
+			</tr>  -->
+		</tbody>
+	</table>
+	<!------------------->
+
+
+	<!-- wait for data loading -->
+	<div id="start-data">
+		<label for="progress">✨Đang khởi tạo dữ liệu cho bạn, xin đợi trong giây lát...
+			<div class="spinner-border text-primary spinner-border-sm" role="status">
+				<span class="visually-hidden">Loading...</span>
+			</div>
+		</label>
+		
+		<!-- <progress id="progress" value="0" max="100"></progress> -->
+	</div>
+
+
+
+	<!--End Loc & Table -->
+  <a id="back-to-top" href="#" class="btn btn-lg back-to-top" role="button">
+    <i>^</i>
+  </a>
+  <script src="soantkbhp.js"></script>
 </body>
 </html>
