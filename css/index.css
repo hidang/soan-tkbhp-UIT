@@ -3,19 +3,72 @@
   overflow: auto;
   background-color: #e3f2fd;
 }
+
 .back-to-top {
     position: fixed;
     bottom: 15px;
     right: 25px;
     display: none;
 }
-/* .navbar {
-  max-height: 40px;
-} */
 
+#main-table{
+  width: 100%;
+  max-width: 90rem;
+  min-height: 40rem;
+  /* height: 20rem; */
+  
+  display: block;
+  overflow-x: auto;
+}
+
+.table-tkbhp{
+  width: 100%;
+  max-width: 90rem;
+  display: block;
+  overflow-x: auto;
+  /* width: 100%; */
+  /* max-width: 1169.6px; */
+  /* height: 616.8px; */
+  /* display: block; */
+  font-size:1em;
+  /* display: table-row; */
+  border-collapse: collapse;
+  border-color: inherit;
+}
+/* huongdan */
+.btn-huong-dan{
+  float: right;
+  padding-right: 50px;
+}
+.huong-dan{
+  position: absolute;
+  padding-left: 150px;
+  
+}
+.huong-dan-text{
+  background-color: aquamarine;
+  padding-left: 4px;
+  width: 100%;
+  height: 7rem;
+  display: block;
+  overflow-x: auto;
+}
+/* tkb table */
+td[name="cell-monhocINtkb"]{
+  background-color: rgb(255, 253, 145);
+}
+th[name="cell-thutiet"] {
+  vertical-align: middle;
+  width: 10%;
+}
+th[name="cell-thu"] {
+  vertical-align: middle;
+}
+
+/* table */
 th[name="cell-Chon"] {
   vertical-align: middle;
-  width: 1%
+  width: 2%
 }
 input[name="cell-STT"] {
   max-width: 2rem;
